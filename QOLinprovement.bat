@@ -1,5 +1,5 @@
 @echo off
-echo Remember to run as administrator
+::echo Remember to run as administrator
 ::Uncommend this if you want backups of registry
 ::echo Backing up registry keys...
 ::reg export "HKEY_LOCAL_MACHINE" "%~dp0HKEY_LOCAL_MACHINE.reg" 
@@ -9,33 +9,32 @@ echo Remember to run as administrator
 ::reg export "HKEY_CLASSES_ROOT" "%~dp0HKEY_CLASSES_ROOT.reg"
 
 
-echo Deleting registry keys...
+::echo Deleting registry keys...
 reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-echo Re-enabling features...
+::echo Re-enabling features...
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 0 /f
-echo Creating registry keys...
+::echo Creating registry keys...
 reg add "HKCU\SOFTWARE\Policies\Microsoft\MMC" /v RestrictToPermittedSnapins /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\MMC\{3D5D035E-7721-4B83-A645-6C07A3D403B7}" /v Restrict_Run /t REG_SZ /d 0 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\MMC\{58221C66-EA27-11CF-ADCF-00AA00A80033}" /v Restrict_Run /t REG_SZ /d 0 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\MMC\{58221C67-EA27-11CF-ADCF-00AA00A80033}" /v Restrict_Run /t REG_SZ /d 0 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\MMC\{5D6179C8-17EC-11D1-9AA9-00C04FD8FE93}" /v Restrict_Run /t REG_SZ /d 0 /f
-echo Deleting registry keys...
+::echo Deleting registry keys...
 reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop" /f
-echo deleted ActiveDesktop
+::echo deleted ActiveDesktop
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization" /f
-echo deleted Personalization
+::echo deleted Personalization
 reg delete "SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection" /f
-echo deleted App and Browser protection
+::echo deleted App and Browser protection
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /f
-echo deleted Windows Defender
+::echo deleted Windows Defender
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\MMC" /f
-echo deleted Microsoft\MMC
+::echo deleted Microsoft\MMC
 reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\Network Connections" /f
-echo deleted NC_ShowSharedAccessUI
+::echo deleted NC_ShowSharedAccessUI
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /f
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /f
-echo deleted Explorer
-echo Done!
+::echo deleted Explorer
 
 ::echo clear update cache
 ::net stop wuauserv
