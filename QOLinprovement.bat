@@ -1,11 +1,12 @@
 @echo off
 echo Remember to run as administrator
-echo Backing up registry keys...
-reg export "HKEY_LOCAL_MACHINE" "%~dp0HKEY_LOCAL_MACHINE.reg" 
-reg export "HKEY_CURRENT_USER" "%~dp0HKEY_CURRENT_USER.reg"
-reg export "HKEY_CURRENT_CONFIG" "%~dp0HKEY_CURRENT_CONFIG.reg"
-reg export "HKEY_USERS" "%~dp0HKEY_USERS.reg"
-reg export "HKEY_CLASSES_ROOT" "%~dp0HKEY_CLASSES_ROOT.reg"
+::Uncommend this if you want backups of registry
+::echo Backing up registry keys...
+::reg export "HKEY_LOCAL_MACHINE" "%~dp0HKEY_LOCAL_MACHINE.reg" 
+::reg export "HKEY_CURRENT_USER" "%~dp0HKEY_CURRENT_USER.reg"
+::reg export "HKEY_CURRENT_CONFIG" "%~dp0HKEY_CURRENT_CONFIG.reg"
+::reg export "HKEY_USERS" "%~dp0HKEY_USERS.reg"
+::reg export "HKEY_CLASSES_ROOT" "%~dp0HKEY_CLASSES_ROOT.reg"
 
 
 echo Deleting registry keys...
