@@ -34,6 +34,26 @@ reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\Network Connections" /f
 ::echo deleted NC_ShowSharedAccessUI
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /f
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /f
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HomeGroup" /f
+reg delete "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Personalization" /f
+reg delete "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" /f
+reg delete "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\WindowsStore" /f
+
+::turn off aero shake
+reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v DisallowShaking /t REG_DWORD /d 1 /f
+
+::Modify how often pc syncs to domain controller
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /v "GroupPolicyRefreshTime" /t REG_DWORD /d 44640 /f
+::Default value is 5a / 90
+
+::disable managemnt of admin password
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd /v AdmPwdEnabled /t REG_DWORD /d 0 /f
+
+::Enable microsoft store
+reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsStore /v 	RequirePrivateStoreOnly /t REG_DWORD /d 0 /f
+reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsStore /v 	RemoveWindowsStore /t REG_DWORD /d 0 /f
+
+
 ::echo deleted Explorer
 
 ::echo clear update cache
