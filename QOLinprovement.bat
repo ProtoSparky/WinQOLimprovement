@@ -47,7 +47,7 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /v "GroupPolicyRefresh
 ::Default value is 5a / 90
 
 ::disable managemnt of admin password
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd /v AdmPwdEnabled /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd" /v AdmPwdEnabled /t REG_DWORD /d 0 /f
 
 ::Enable microsoft store
 reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsStore /v 	RequirePrivateStoreOnly /t REG_DWORD /d 0 /f
