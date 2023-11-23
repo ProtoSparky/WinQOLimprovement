@@ -1,4 +1,6 @@
 @echo off
+mode con: cols=15 lines=1
+::custom mode added so terminal window would be less distracting
 ::echo Remember to run as administrator
 ::Uncommend this if you want backups of registry
 ::echo Backing up registry keys...
